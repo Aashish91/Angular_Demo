@@ -12,8 +12,8 @@ pool:
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '18.x'
-  displayName: 'Install Node.js 18.x'
+    versionSpec: '14.x'
+  displayName: 'Install Node.js 14.x'
 
 - script: |
     npm install -g @angular/cli

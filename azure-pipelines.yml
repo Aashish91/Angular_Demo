@@ -20,12 +20,29 @@ steps:
     npm install
     ng build --configuration production
   displayName: 'npm install and build'
+  workingDirectory: '$(Build.SourcesDirectory)'
+
+- task: ArchiveFiles@2
+  displayName: 'Archive files'
+  inputs:
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)/dist/angular-material/'
+    includeRootFolder: false
+    archiveType: zip
+    archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+    replaceExistingArchive: true
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
 
 - task: AzureRmWebAppDeployment@4
+  displayName: 'Deploy App Service'
   inputs:
     ConnectionType: 'AzureRM'
     azureSubscription: 'Free Trial(16720602-2be7-4696-a774-c3254fa73398)'
     appType: 'webAppLinux'
     WebAppName: 'angular-material-web-app'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    packageForLinux: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
     RuntimeStack: 'NODE|18-lts'

@@ -20,3 +20,12 @@ steps:
     npm install
     ng build --configuration production
   displayName: 'npm install and build'
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Free Trial(16720602-2be7-4696-a774-c3254fa73398)'
+    appType: 'webAppLinux'
+    WebAppName: 'angular-material-web-app'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    RuntimeStack: 'NODE|18-lts'

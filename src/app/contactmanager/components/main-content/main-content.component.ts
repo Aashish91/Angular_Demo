@@ -12,7 +12,6 @@ export class MainContentComponent implements OnInit {
   user: User;
 
   constructor(private route: ActivatedRoute, private service: UserService) {
-    this.user = new User();
   }
 
   ngOnInit() {

@@ -17,6 +17,8 @@ const SMALL_WIDTH_BREAKPOINT = 720;
 export class SidenavComponent implements OnInit {
 
   public isScreenSmall: boolean = false;
+  isDarkTheme: boolean = false;
+  direction: string = "ltr";
   users: Observable<User[]>;
   constructor(private breakpointObserver: BreakpointObserver, private userService: UserService, private router: Router) {
   }
@@ -41,6 +43,15 @@ export class SidenavComponent implements OnInit {
     //     this.drawer?.close();
     //   }
     // })
+
+  }
+
+  toggleTheme() {
+    this.isDarkTheme = !this.isDarkTheme;
+  }
+
+  toggleDir() {
+    this.direction = this.direction == "rtl" ? "ltr" : "rtl";
   }
 
 }

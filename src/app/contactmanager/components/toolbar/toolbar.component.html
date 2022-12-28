@@ -4,4 +4,22 @@
   </button>
 
   <span>Contact Manager</span>
+  <span class="example-spacer"></span>
+  <button class="" mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="openAddContactDialog()">
+      <mat-icon>add</mat-icon>
+      <span>New Contact</span>
+    </button>
+    <button mat-menu-item (click)="toggleTheme.emit()">
+      <mat-icon>dark_mode</mat-icon>
+      <span>Toggle Theme</span>
+    </button>
+    <button mat-menu-item (click)="toggleDir.emit()">
+      <mat-icon>multiple_stop</mat-icon>
+      <span>Toggle Direction</span>
+    </button>
+  </mat-menu>
 </mat-toolbar>

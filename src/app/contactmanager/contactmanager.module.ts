@@ -51,7 +51,6 @@ const routes: Routes = [
     SidenavComponent,
     NotesComponent,
     NewContactDialogComponent
-    NotesComponent
   ],
   imports: [
     CommonModule,

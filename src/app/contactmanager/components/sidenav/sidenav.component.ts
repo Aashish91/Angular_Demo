@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { UserService } from '../../services/user.service';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { User } from '../../models/user';
 import { Router } from '@angular/router';
 import { MatSidenav } from '@angular/material/sidenav';
@@ -17,7 +17,7 @@ const SMALL_WIDTH_BREAKPOINT = 720;
 export class SidenavComponent implements OnInit {
 
   public isScreenSmall: boolean = false;
-  users: Observable<User[]> = of<User[]>([]);
+  users: Observable<User[]>;
   constructor(private breakpointObserver: BreakpointObserver, private userService: UserService, private router: Router) {
   }
   
@@ -36,10 +36,11 @@ export class SidenavComponent implements OnInit {
       if (data.length > 0) this.router.navigate(['/contactmanager', data[0].id]);
     })
 
-    this.router.events.subscribe(() => {
-      if (this.isScreenSmall)
-        this.drawer?.close();
-    })
+    // this.router.events.subscribe(() => {
+    //   if (this.isScreenSmall) {
+    //     this.drawer?.close();
+    //   }
+    // })
   }
 
 }

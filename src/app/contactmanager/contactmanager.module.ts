@@ -50,7 +50,7 @@ const routes: Routes = [
     MainContentComponent,
     SidenavComponent,
     NotesComponent,
-    NewContactDialogComponent
+    NewContactDialogComponent,
     NotesComponent
   ],
   imports: [

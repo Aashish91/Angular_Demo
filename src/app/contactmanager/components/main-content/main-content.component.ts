@@ -12,7 +12,6 @@ export class MainContentComponent implements OnInit {
   user: User;
 
   constructor(private route: ActivatedRoute, private service: UserService) {
-    this.user = new User();
   }
 
   ngOnInit() {
@@ -20,9 +19,8 @@ export class MainContentComponent implements OnInit {
       const id = params['id'];
       this.service.users.subscribe(users => {
         if(users.length == 0 ) return;
-
-        this.user = this.service.userById(id)!;
-    })
-  });
-}
+      this.user = this.service.userById(id)!;
+      });
+    });
+  }
 }

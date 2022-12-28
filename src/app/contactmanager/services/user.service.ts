@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { ContactmanagerModule } from '../contactmanager.module';
 import { User } from '../models/user';
 
 @Injectable()

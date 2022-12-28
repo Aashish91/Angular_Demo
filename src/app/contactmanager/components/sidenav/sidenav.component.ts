@@ -43,6 +43,7 @@ export class SidenavComponent implements OnInit {
     //     this.drawer?.close();
     //   }
     // })
+
   }
 
   toggleTheme() {

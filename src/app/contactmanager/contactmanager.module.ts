@@ -20,6 +20,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -31,7 +32,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { UserService } from './services/user.service';
 import { NotesComponent } from './components/notes/notes.component';
 import { NewContactDialogComponent } from './components/new-contact-dialog/new-contact-dialog.component';
-import { MatNativeDateModule } from '@angular/material/core';
+
 
 const routes: Routes = [
   { path: '', component: ContactmanagerAppComponent,
@@ -50,6 +51,7 @@ const routes: Routes = [
     SidenavComponent,
     NotesComponent,
     NewContactDialogComponent
+    NotesComponent
   ],
   imports: [
     CommonModule,
